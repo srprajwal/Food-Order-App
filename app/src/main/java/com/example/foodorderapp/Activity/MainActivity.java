@@ -10,10 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodorderapp.Adapter.BestFoodsAdapter;
+import com.example.foodorderapp.Adapter.CategoryAdapter;
+import com.example.foodorderapp.Domain.Category;
 import com.example.foodorderapp.Domain.Foods;
 import com.example.foodorderapp.Domain.Location;
 import com.example.foodorderapp.Domain.Price;
@@ -43,6 +46,7 @@ public class MainActivity extends BaseActivity {
         initTime();
         initPrice();
         initBestFood();
+        initCategory();
 
     }
 
@@ -65,6 +69,33 @@ public class MainActivity extends BaseActivity {
                         binding.bestFoodView.setAdapter(adapter);
                     }
                     binding.progressBarBestFood.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void initCategory() {
+        DatabaseReference myRef = database.getReference("Category");
+        binding.progressBarCategory.setVisibility(View.VISIBLE);
+        ArrayList<Category> list = new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        list.add(issue.getValue(Category.class));
+                    }
+                    if(!list.isEmpty()){
+                        binding.categoryView.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                        RecyclerView.Adapter adapter = new CategoryAdapter(list);
+                        binding.categoryView.setAdapter(adapter);
+                    }
+                    binding.progressBarCategory.setVisibility(View.GONE);
                 }
             }
 
