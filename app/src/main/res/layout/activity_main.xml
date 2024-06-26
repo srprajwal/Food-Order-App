@@ -49,7 +49,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/logout" />
+                    android:src="@drawable/logout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -68,10 +68,10 @@
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/gray_background"
                     android:padding="12dp"
-                    tools:srcCompat="@drawable/settings" />
+                    android:src="@drawable/settings" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/gray_background"
@@ -82,7 +82,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="4dp"
-                        android:layout_weight="1"
                         android:background="@color/grey"
                         android:ems="10"
                         android:hint="Search Food..."
@@ -99,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="4dp"
-                        tools:srcCompat="@drawable/search_icon" />
+                        android:src="@drawable/search_icon" />
                 </LinearLayout>
 
                 <ImageView
@@ -109,7 +108,7 @@
                     android:background="@drawable/gray_background"
                     android:padding="12dp"
                     tools:layout_marginStart="6dp"
-                    tools:srcCompat="@drawable/basket" />
+                    android:src="@drawable/basket" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,7 +141,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
-                        android:layout_weight="1"
                         android:background="@null" />
                 </LinearLayout>
 
@@ -160,14 +158,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
-                        tools:srcCompat="@drawable/time" />
+                        android:src="@drawable/time" />
 
                     <Spinner
                         android:id="@+id/timeSp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
-                        android:layout_weight="1"
                         android:background="@null" />
                 </LinearLayout>
 
@@ -184,14 +181,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
-                        tools:srcCompat="@drawable/dollar" />
+                        android:src="@drawable/dollar" />
 
                     <Spinner
                         android:id="@+id/priceSp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
-                        android:layout_weight="1"
                         android:background="@null" />
 
                 </LinearLayout>
@@ -209,12 +205,12 @@
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Today's Best Foods..."
                     android:textColor="@color/blue_grey"
-                    android:textSize="22dp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     />
 
@@ -230,8 +226,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="300dp">
 
                 <ProgressBar
                     android:id="@+id/progressBarBestFood"
@@ -247,6 +244,9 @@
                     android:id="@+id/bestFoodView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -261,7 +261,7 @@
                 android:layout_weight="1"
                 android:text="Choose Category"
                 android:textColor="@color/blue_grey"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
