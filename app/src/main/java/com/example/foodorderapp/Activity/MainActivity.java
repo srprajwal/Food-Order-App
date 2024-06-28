@@ -67,7 +67,11 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        binding.cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
     }
+
+
 
     private void initBestFood() {
         DatabaseReference myRef = database.getReference("Foods");
